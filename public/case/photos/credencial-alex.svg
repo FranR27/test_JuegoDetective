@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="t d">
+  <title id="t">Credencial de Alex Morgan, legajo 0847</title>
+  <desc id="d">Credencial plastificada de Boreal Systems con foto desactualizada, nombre, legajo y nivel de acceso 2.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1b2028"/>
+      <stop offset="1" stop-color="#0b0d10"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f1eadb"/>
+      <stop offset="1" stop-color="#cfc4ae"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="0.45" stop-color="#ffffff" stop-opacity="0.04"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="grain" width="6" height="6" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.6" fill="#ffffff" opacity="0.05"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="520" fill="url(#bg)"/>
+  <rect width="800" height="520" fill="url(#grain)"/>
+  <g opacity="0.18" stroke="#e2a64b" fill="none" stroke-width="1">
+    <circle cx="650" cy="90" r="150"/>
+    <circle cx="650" cy="90" r="110"/>
+    <path d="M0 430h800M0 460h800"/>
+  </g>
+
+  <g transform="rotate(-5 400 260)">
+    <rect x="150" y="96" width="500" height="320" rx="16" fill="#000" opacity="0.5"/>
+    <rect x="142" y="88" width="500" height="320" rx="16" fill="url(#card)"/>
+    <rect x="142" y="88" width="500" height="320" rx="16" fill="url(#shine)"/>
+
+    <rect x="142" y="88" width="500" height="64" rx="16" fill="#171c23"/>
+    <rect x="142" y="132" width="500" height="20" fill="#171c23"/>
+    <text x="170" y="127" font-family="Segoe UI, Arial, sans-serif" font-size="21" font-weight="700" letter-spacing="2" fill="#e2a64b">BOREAL SYSTEMS</text>
+    <text x="614" y="127" text-anchor="end" font-family="Consolas, monospace" font-size="11" letter-spacing="2" fill="#8d97a3">S.A. · CABA</text>
+
+    <rect x="176" y="180" width="150" height="172" rx="6" fill="#c9c0ac" stroke="#9d9482" stroke-width="2"/>
+    <rect x="176" y="180" width="150" height="172" rx="6" fill="#2a3038"/>
+    <circle cx="251" cy="243" r="40" fill="#59616d"/>
+    <path d="M188 352c6-48 34-72 63-72s57 24 63 72z" fill="#59616d"/>
+    <path d="M210 232c0-32 18-30 41-30s41-2 41 30c-8-16-22-22-41-22s-33 6-41 22z" fill="#3a414b"/>
+    <text x="251" y="373" text-anchor="middle" font-family="Consolas, monospace" font-size="9" letter-spacing="1.5" fill="#9aa3ad">FOTO 2020</text>
+
+    <text x="356" y="196" font-family="Consolas, monospace" font-size="9" letter-spacing="3" fill="#7a7264">LEGAJO</text>
+    <text x="356" y="248" font-family="Consolas, monospace" font-size="52" font-weight="700" fill="#24211c">0847</text>
+    <text x="356" y="286" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700" fill="#24211c">Alex Morgan</text>
+    <text x="356" y="311" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#5d564a">Auditor Interno Senior</text>
+    <text x="356" y="333" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#7a7264">Ingreso: abril 2021 · Área: Auditoría</text>
+
+    <rect x="356" y="348" width="126" height="26" rx="4" fill="#24211c"/>
+    <text x="419" y="366" text-anchor="middle" font-family="Consolas, monospace" font-size="11" letter-spacing="2" fill="#e2a64b">NIVEL 2</text>
+    <rect x="490" y="348" width="126" height="26" rx="4" fill="none" stroke="#9d9482" stroke-width="1.5"/>
+    <text x="553" y="366" text-anchor="middle" font-family="Consolas, monospace" font-size="10" letter-spacing="1" fill="#5d564a">ACCESO PISO 4</text>
+
+    <text x="142" y="432" font-family="Consolas, monospace" font-size="10" letter-spacing="2" fill="#c8c2b6">BOREAL / ID-0847 · VIGENTE HASTA 12/2026</text>
+  </g>
+
+  <text x="742" y="486" text-anchor="end" font-family="Consolas, monospace" font-size="10" letter-spacing="2" fill="#626b76">EVIDENCIA EV-01</text>
+</svg>

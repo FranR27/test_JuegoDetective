@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="t d">
+  <title id="t">Pizarra de la oficina de auditoría</title>
+  <desc id="d">Pizarra blanca con anotaciones: Faro por tres igual a 480k, quién aprobó, y el número 404 encerrado en un círculo.</desc>
+  <defs>
+    <linearGradient id="room" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#191d23"/>
+      <stop offset="1" stop-color="#090b0e"/>
+    </linearGradient>
+    <linearGradient id="board" x1="0" y1="0" x2="0.8" y2="1">
+      <stop offset="0" stop-color="#e6e8e5"/>
+      <stop offset="0.6" stop-color="#d5d9d6"/>
+      <stop offset="1" stop-color="#c2c7c4"/>
+    </linearGradient>
+    <filter id="marker"><feGaussianBlur stdDeviation="0.35"/></filter>
+    <pattern id="smudge" width="120" height="120" patternUnits="userSpaceOnUse">
+      <ellipse cx="40" cy="50" rx="54" ry="18" fill="#9aa09c" opacity="0.12" transform="rotate(-12 40 50)"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="520" fill="url(#room)"/>
+
+  <rect x="58" y="54" width="684" height="376" rx="8" fill="#0a0c0e"/>
+  <rect x="66" y="62" width="668" height="360" rx="5" fill="url(#board)"/>
+  <rect x="66" y="62" width="668" height="360" rx="5" fill="url(#smudge)"/>
+  <rect x="58" y="430" width="684" height="14" rx="4" fill="#3a3f45"/>
+  <rect x="118" y="444" width="16" height="44" fill="#2a2e33"/>
+  <rect x="666" y="444" width="16" height="44" fill="#2a2e33"/>
+
+  <g filter="url(#marker)" fill="#233247" font-family="Segoe UI, Arial, sans-serif">
+    <text x="104" y="138" font-size="36" font-weight="700" letter-spacing="1">AUDITORÍA 2026</text>
+    <path d="M106 152c120-6 240 4 320-2" stroke="#233247" stroke-width="3" fill="none" opacity="0.7"/>
+
+    <text x="106" y="224" font-size="46" font-weight="700" fill="#7a2f2a">FARO x3 = 480k</text>
+    <path d="M104 240c130 4 250-6 350 0" stroke="#7a2f2a" stroke-width="4" fill="none" opacity="0.8"/>
+
+    <text x="106" y="304" font-size="34" font-weight="600" fill="#2f4c3b">¿quién aprobó?</text>
+    <path d="M108 318c80 6 170-8 250 0" stroke="#2f4c3b" stroke-width="3" fill="none" opacity="0.7"/>
+
+    <text x="106" y="376" font-size="20" fill="#4b5563">cierre 31/03 · no firmar</text>
+  </g>
+
+  <g fill="none" stroke="#7a2f2a" stroke-linecap="round">
+    <path d="M540 232c56-58 126-44 142 6s-40 100-104 92-92-58-56-100 104-44 132 0" stroke-width="4" opacity="0.85"/>
+  </g>
+  <text x="612" y="288" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="64" font-weight="700" fill="#7a2f2a">404</text>
+  <text x="612" y="322" text-anchor="middle" font-family="Consolas, monospace" font-size="10" letter-spacing="3" fill="#5a4a46">CAJA · LOCKER</text>
+
+  <g transform="rotate(-18 500 400)">
+    <rect x="470" y="386" width="120" height="10" rx="5" fill="#2d3136"/>
+    <rect x="584" y="384" width="10" height="14" rx="2" fill="#c8c2b6"/>
+  </g>
+
+  <g font-family="Consolas, monospace" fill="#8d97a3">
+    <text x="34" y="508" font-size="11" letter-spacing="2">PISO 4 · SALA DE AUDITORÍA · 13/03/2026 18:20</text>
+    <text x="766" y="508" text-anchor="end" font-size="11" letter-spacing="2" fill="#626b76">EV-10 / FOTO 06</text>
+  </g>
+</svg>
