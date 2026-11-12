@@ -7,7 +7,8 @@ node_modules/
 !.env.example
 
 # Credenciales de Firebase: NUNCA subir a GitHub
-credenciales/
+credenciales/*
+!credenciales/.gitkeep
 serviceAccount*.json
 *-firebase-adminsdk-*.json
 firebase-admin*.json
