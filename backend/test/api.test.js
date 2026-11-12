@@ -1,5 +1,6 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
+const { CAPITULOS } = require('../src/data/capitulo1');
 
 // Estos tests levantan el servidor real y necesitan las dependencias instaladas (npm install).
 // Si Express no está instalado se omiten en lugar de fallar.
@@ -9,6 +10,11 @@ try {
 } catch {
   express = false;
 }
+
+// Acertijo y respuesta canónicos del capítulo real (ver docs/integracion.md).
+const P1 = 'p1_despedida';
+const RESPUESTA_P1 = 'p1_hermano|p1_vpn';
+const DESBLOQUEA_P1 = CAPITULOS[1].acertijos.find((a) => a.id === P1).desbloquea;
 
 test('API HTTP', { skip: !express && 'Express no está instalado (ejecutar npm install)' }, async (t) => {
   const { crearApp } = require('../src/app');
@@ -58,18 +64,19 @@ test('API HTTP', { skip: !express && 'Express no está instalado (ejecutar npm i
   });
 
   await t.test('validar acertijo: incorrecto y luego correcto', async () => {
-    const ruta = `/api/partidas/${partidaId}/acertijos/mensaje-despedida/validar`;
+    const ruta = `/api/partidas/${partidaId}/acertijos/${P1}/validar`;
     const mal = await (await pedir(ruta, { metodo: 'POST', cuerpo: { respuesta: 'nope' } })).json();
     assert.equal(mal.correcto, false);
-    const bien = await (await pedir(ruta, { metodo: 'POST', cuerpo: { respuesta: 'demo-despedida' } })).json();
+    const bien = await (await pedir(ruta, { metodo: 'POST', cuerpo: { respuesta: RESPUESTA_P1 } })).json();
     assert.equal(bien.correcto, true);
-    assert.deepEqual(bien.evidenciasDesbloqueadas, ['ev-contradiccion-mensaje']);
+    assert.deepEqual(bien.evidenciasDesbloqueadas, DESBLOQUEA_P1);
   });
 
   await t.test('registrar evidencia bloqueada responde 403', async () => {
+    // P1 ya está resuelto en este punto, así que se usa una evidencia de P3.
     const respuesta = await pedir(`/api/partidas/${partidaId}/evidencias`, {
       metodo: 'POST',
-      cuerpo: { evidenciaId: 'ev-documentos-auditoria' },
+      cuerpo: { evidenciaId: 'ev_audit_trail' },
     });
     assert.equal(respuesta.status, 403);
   });

@@ -54,8 +54,8 @@ Cada partida es un documento en la colección `partidas`; el `id` lo genera Fire
 {
   "id": "q3Zk1x9PabC2dEfGhIjK",
   "capitulo": 1,
-  "evidenciasEncontradas": ["ev-ultima-conexion", "ev-contradiccion-mensaje"],
-  "acertijosResueltos": ["mensaje-despedida"],
+  "evidenciasEncontradas": ["ev_credencial", "ev_metadatos"],
+  "acertijosResueltos": ["p1_despedida"],
   "creadaEn": "2026-11-12T21:30:00.000Z",
   "ultimaActualizacion": "2026-11-12T21:42:10.000Z"
 }
@@ -88,14 +88,14 @@ Todas bajo `/api`, con JSON en pedido y respuesta.
 
 ```json
 // Pedido
-{ "respuesta": "Demo-Clave-2026" }
+{ "respuesta": "p1_hermano|p1_vpn" }
 
 // Respuesta: correcta
 {
   "correcto": true,
   "yaResuelto": false,
-  "evidenciasDesbloqueadas": ["ev-documentos-auditoria"],
-  "partida": { "id": "...", "acertijosResueltos": ["auditoria-2026"], "evidenciasEncontradas": ["ev-documentos-auditoria"], "...": "..." }
+  "evidenciasDesbloqueadas": ["ev_metadatos", "ev_declaracion_marta", "ev_nota_caja"],
+  "partida": { "id": "...", "acertijosResueltos": ["p1_despedida"], "evidenciasEncontradas": ["ev_metadatos", "..."], "...": "..." }
 }
 
 // Respuesta: incorrecta (también es 200; no es un error del pedido)
@@ -125,9 +125,9 @@ Siempre con esta forma:
 | 404 | `ruta_no_encontrada` | La ruta no existe |
 | 500 | `error_interno` | Error inesperado del servidor |
 
-## Catálogo y acertijos (a acordar con el integrante 2)
+## Catálogo y acertijos
 
-Evidencias, acertijos y sus ids están en `src/data/capitulo1.js`. **Los valores actuales son provisorios**: hay que reemplazarlos por los reales y los ids tienen que coincidir con los del frontend.
+Evidencias, acertijos y sus ids están en `src/data/capitulo1.js` y coinciden con los del frontend (`src/data/capitulo1.js` en la raíz del repo). El catálogo es el real del capítulo 1: 19 evidencias y 3 acertijos encadenados (`p1` → `p2` → `p3`).
 
 Las soluciones se guardan como hash SHA-256, no en texto plano, para que no se puedan leer en el repositorio. Para cargar una respuesta real:
 
@@ -136,15 +136,9 @@ npm run hash -- "respuesta correcta"
 npm run hash -- "Clave-Con-Mayusculas" --mayusculas   # si debe distinguir mayúsculas
 ```
 
-Pegar el resultado en `hashRespuesta` del acertijo (y `distingueMayusculas: true` en el segundo caso). La comparación ignora tildes, espacios sobrantes y mayúsculas, salvo en los acertijos que lo indiquen (como la contraseña de `AUDITORIA_2026`).
+Pegar el resultado en `hashRespuesta` del acertijo (y `distingueMayusculas: true` en el segundo caso). La comparación ignora tildes, espacios sobrantes y mayúsculas, salvo en los acertijos que lo indiquen.
 
-Respuestas de prueba actuales, para probar con el frontend mientras tanto:
-
-| Acertijo | Respuesta |
-|---|---|
-| `mensaje-despedida` | `demo-despedida` |
-| `auditoria-2026` | `Demo-Clave-2026` (distingue mayúsculas) |
-| `historial-renuncia` | `demo-historial` |
+Las respuestas canónicas y sus hashes están documentadas en `docs/integracion.md` (raíz del repo). No se listan acá para no filtrarlas en la portada del backend.
 
 Un hash protege la solución de quien lee el código, pero no de quien prueba respuestas cortas a mano, algo aceptable para un juego.
 
