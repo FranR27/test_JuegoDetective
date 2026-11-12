@@ -1,0 +1,342 @@
+.case-mail {
+  height: 100%;
+  min-height: 0;
+  container-name: mail;
+  container-type: inline-size;
+  background: var(--case-bg);
+}
+
+.case-mail__toolbar {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.case-segmented {
+  display: inline-flex;
+  padding: 3px;
+  border: 1px solid var(--case-border);
+  border-radius: var(--case-radius-sm);
+  background: var(--case-bg);
+}
+
+.case-segmented__item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--case-muted);
+  font-size: 12px;
+  font-weight: 600;
+  transition:
+    background 130ms ease,
+    color 130ms ease;
+}
+
+.case-segmented__item:hover {
+  color: var(--case-text);
+}
+
+.case-segmented__item.is-active {
+  background: var(--case-surface-3);
+  color: var(--case-text);
+}
+
+.case-segmented__count {
+  color: var(--case-faint);
+  font-family: var(--case-font-mono);
+  font-size: 9.5px;
+}
+
+.case-segmented__dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--case-accent);
+}
+
+.case-mail__grid {
+  display: grid;
+  grid-template-columns: 340px minmax(0, 1fr);
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.case-mail__list {
+  min-height: 0;
+  overflow-y: auto;
+  border-right: 1px solid var(--case-border);
+  background: var(--case-surface);
+}
+
+.case-mail-row {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 100%;
+  padding: 11px 13px;
+  border: 0;
+  border-bottom: 1px solid rgba(43, 49, 59, 0.62);
+  background: transparent;
+  color: var(--case-text-soft);
+  text-align: left;
+  transition: background 120ms ease;
+}
+
+.case-mail-row:hover {
+  background: var(--case-surface-2);
+}
+
+.case-mail-row.is-active {
+  background: var(--case-surface-3);
+  box-shadow: inset 2px 0 0 var(--case-accent);
+}
+
+.case-mail-row__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.case-mail-row__from {
+  overflow: hidden;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--case-text-soft);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.case-mail-row.is-unread .case-mail-row__from {
+  color: var(--case-text);
+}
+
+.case-mail-row__time {
+  flex-shrink: 0;
+  color: var(--case-faint);
+  font-family: var(--case-font-mono);
+  font-size: 9px;
+}
+
+.case-mail-row__subject {
+  overflow: hidden;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--case-text-soft);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.case-mail-row.is-unread .case-mail-row__subject {
+  color: var(--case-accent-strong);
+}
+
+.case-mail-row__preview {
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--case-faint);
+  font-size: 11px;
+  line-height: 1.4;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.case-mail-row__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 13px;
+}
+
+.case-mail-row__clip {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--case-faint);
+  font-family: var(--case-font-mono);
+  font-size: 9px;
+}
+
+.case-mail-row__dot {
+  width: 6px;
+  height: 6px;
+  margin-left: auto;
+  border-radius: 50%;
+  background: var(--case-accent);
+  box-shadow: 0 0 8px rgba(226, 166, 75, 0.55);
+}
+
+.case-mail__viewer {
+  min-width: 0;
+  min-height: 0;
+  overflow-y: auto;
+  background:
+    radial-gradient(circle at 78% 0%, rgba(226, 166, 75, 0.045), transparent 34%),
+    var(--case-bg);
+}
+
+.case-mail__message {
+  width: min(100%, 820px);
+  margin: 0 auto;
+  padding: clamp(22px, 3.2vw, 38px);
+}
+
+.case-mail__head {
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--case-border);
+}
+
+.case-mail__subject {
+  margin-top: 6px !important;
+  font-family: var(--case-font-display);
+  font-size: clamp(22px, 2.5vw, 30px);
+  letter-spacing: -0.01em;
+}
+
+.case-mail__people {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.case-mail__avatar {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--case-accent-line);
+  border-radius: 50%;
+  background: var(--case-accent-soft);
+  color: var(--case-accent-strong);
+  font-family: var(--case-font-mono);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.case-mail__people-body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 1px;
+}
+
+.case-mail__people-body strong {
+  font-size: 13px;
+}
+
+.case-mail__people-body span {
+  color: var(--case-muted);
+  font-family: var(--case-font-mono);
+  font-size: 10px;
+}
+
+.case-mail__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin-top: 14px;
+}
+
+.case-mail__meta > div {
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+}
+
+.case-mail__meta dt {
+  color: var(--case-faint);
+  font-family: var(--case-font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.case-mail__meta dd {
+  color: var(--case-muted);
+  font-family: var(--case-font-mono);
+  font-size: 9.5px;
+}
+
+.case-mail__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 14px;
+}
+
+.case-mail__body {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  padding: 22px 0;
+  max-width: 70ch;
+  color: var(--case-text-soft);
+  font-size: 14px;
+  line-height: 1.72;
+  white-space: pre-wrap;
+}
+
+.case-mail__attachments {
+  padding-top: 16px;
+  border-top: 1px dashed var(--case-border);
+}
+
+.case-mail__attachment-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 8px;
+}
+
+.case-attachment {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 10px;
+  border: 1px solid var(--case-border);
+  border-radius: var(--case-radius-sm);
+  background: var(--case-surface-2);
+  color: var(--case-text-soft);
+  font-size: 11.5px;
+  text-align: left;
+}
+
+button.case-attachment:hover {
+  border-color: var(--case-accent-line);
+  background: var(--case-surface-3);
+}
+
+.case-mail__attachment-kind {
+  color: var(--case-faint);
+  font-family: var(--case-font-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+@container mail (max-width: 760px) {
+  .case-mail__grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(170px, 36%) minmax(0, 1fr);
+  }
+
+  .case-mail__list {
+    border-right: 0;
+    border-bottom: 1px solid var(--case-border);
+  }
+
+  .case-mail__message {
+    padding: 20px;
+  }
+}

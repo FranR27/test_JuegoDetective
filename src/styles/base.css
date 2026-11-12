@@ -1,0 +1,90 @@
+.case-ui,
+.case-ui *,
+.case-ui *::before,
+.case-ui *::after {
+  box-sizing: border-box;
+}
+
+.case-ui {
+  color: var(--case-text);
+  font-family: var(--case-font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  accent-color: var(--case-accent);
+}
+
+.case-ui h1,
+.case-ui h2,
+.case-ui h3,
+.case-ui h4,
+.case-ui p,
+.case-ui dl,
+.case-ui dd,
+.case-ui blockquote,
+.case-ui figure {
+  margin: 0;
+}
+
+.case-ui h1,
+.case-ui h2,
+.case-ui h3,
+.case-ui h4 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.case-ui button,
+.case-ui input,
+.case-ui textarea,
+.case-ui select {
+  font: inherit;
+  color: inherit;
+}
+
+.case-ui button {
+  cursor: pointer;
+}
+
+.case-ui :focus-visible {
+  outline: 2px solid var(--case-accent);
+  outline-offset: 2px;
+}
+
+.case-ui ::selection {
+  background: var(--case-accent);
+  color: #1a1509;
+}
+
+.case-ui ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.case-ui ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.case-ui ::-webkit-scrollbar-thumb {
+  background: var(--case-border-strong);
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background-clip: content-box;
+}
+
+.case-ui ::-webkit-scrollbar-thumb:hover {
+  background: var(--case-faint);
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+
+.case-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
