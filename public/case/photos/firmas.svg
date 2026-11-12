@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="t d">
+  <title id="t">Comparación de firmas de Alex Morgan</title>
+  <desc id="d">Dos recuadros de documento: la firma original de 2021 con trazo continuo y la firma escaneada de la renuncia de 2026 con trazo entrecortado.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#15181d"/>
+      <stop offset="1" stop-color="#0a0c0f"/>
+    </linearGradient>
+    <linearGradient id="sheet" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#efe8d8"/>
+      <stop offset="1" stop-color="#d6cbb4"/>
+    </linearGradient>
+    <filter id="sh"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#000" flood-opacity="0.5"/></filter>
+  </defs>
+
+  <rect width="800" height="520" fill="url(#bg)"/>
+  <g opacity="0.22" stroke="#e2a64b" fill="none">
+    <path d="M400 40v440"/>
+  </g>
+
+  <text x="52" y="54" font-family="Consolas, monospace" font-size="11" letter-spacing="3" fill="#8d97a3">MUESTRA A · LEGAJO 2021</text>
+  <text x="748" y="54" text-anchor="end" font-family="Consolas, monospace" font-size="11" letter-spacing="3" fill="#8d97a3">MUESTRA B · RENUNCIA 2026</text>
+
+  <g filter="url(#sh)">
+    <rect x="40" y="76" width="330" height="356" rx="6" fill="url(#sheet)"/>
+    <rect x="430" y="76" width="330" height="356" rx="6" fill="url(#sheet)"/>
+  </g>
+
+  <g stroke="#b6a98c" stroke-width="1" opacity="0.7">
+    <path d="M64 132h282M64 396h282M454 132h282M454 396h282"/>
+  </g>
+
+  <g font-family="Consolas, monospace" fill="#6d6555">
+    <text x="64" y="114" font-size="10" letter-spacing="1">BOREAL SYSTEMS · ALTA DE PERSONAL</text>
+    <text x="64" y="428" font-size="10">FECHA: 12/04/2021</text>
+    <text x="454" y="114" font-size="10" letter-spacing="1">FORMULARIO REN-2026-0847</text>
+    <text x="454" y="428" font-size="10">FECHA: 10/03/2026 · ESCANEADO</text>
+  </g>
+
+  <g fill="none" stroke="#203047" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M76 286c26-38 42 26 62-6s26 20 48-8 30 24 54-2 34 18 58-6 30 14 46-4" stroke-width="3.4"/>
+    <path d="M84 320c34 10 66-8 100-2s64 12 96 0 62-6 96 4" stroke-width="1.6" opacity="0.7"/>
+    <ellipse cx="228" cy="262" rx="86" ry="34" stroke-width="1" opacity="0.2"/>
+  </g>
+  <text x="205" y="366" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#3a4657" font-style="italic">Alex Morgan</text>
+
+  <g fill="none" stroke="#203047" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 4">
+    <path d="M452 288c14-20 20 12 34-2s14 12 26-6 14 10 26-4" stroke-width="2.6" opacity="0.68"/>
+    <path d="M540 278c10-18 16 8 26-2s12 10 24-4 12 8 24-2" stroke-width="2.2" opacity="0.6"/>
+    <path d="M610 292c12-14 18 6 26-2" stroke-width="1.8" opacity="0.55"/>
+    <path d="M470 326c30 8 58-4 88 2s60 6 88-4" stroke-width="1.2" opacity="0.5"/>
+  </g>
+  <text x="596" y="366" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#3a4657" font-style="italic" opacity="0.75">A. Morgan</text>
+
+  <g font-family="Consolas, monospace" font-size="10">
+    <rect x="56" y="448" width="300" height="42" rx="4" fill="#12161a" stroke="#2b313b"/>
+    <text x="70" y="465" fill="#77b592" letter-spacing="1">TRAZO CONTINUO · PRESIÓN REGULAR</text>
+    <text x="70" y="480" fill="#8d97a3">Coincide con el alta de 2021.</text>
+
+    <rect x="444" y="448" width="300" height="42" rx="4" fill="#12161a" stroke="#2b313b"/>
+    <text x="458" y="465" fill="#d96a62" letter-spacing="1">TRAZO ENTRECORTADO · PRESIÓN IRREGULAR</text>
+    <text x="458" y="480" fill="#8d97a3">Sin validación biométrica.</text>
+  </g>
+</svg>

@@ -1,0 +1,42 @@
+.case-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 20px;
+  padding: 1px 7px;
+  border: 1px solid var(--case-border);
+  border-radius: 999px;
+  background: var(--case-surface-2);
+  color: var(--case-muted);
+  font-family: var(--case-font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.case-badge--accent {
+  border-color: var(--case-accent-line);
+  background: var(--case-accent-soft);
+  color: var(--case-accent-strong);
+}
+
+.case-badge--danger {
+  border-color: rgba(217, 106, 98, 0.38);
+  background: var(--case-danger-soft);
+  color: var(--case-danger);
+}
+
+.case-badge--success {
+  border-color: rgba(119, 181, 146, 0.38);
+  background: var(--case-success-soft);
+  color: var(--case-success);
+}
+
+.case-badge--info {
+  border-color: rgba(122, 167, 204, 0.38);
+  background: var(--case-info-soft);
+  color: var(--case-info);
+}

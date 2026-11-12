@@ -1,0 +1,36 @@
+/* Tokens del subsistema de investigación.
+   Prefijo `case-` para no chocar con el tema del escritorio de Integrante 1.
+   Cualquier pantalla se puede montar dentro de una ventana: los tokens viajan
+   con el contenedor `.case-ui`. */
+.case-ui {
+  --case-bg: #0c0e11;
+  --case-bg-deep: #08090b;
+  --case-surface: #13161b;
+  --case-surface-2: #191d24;
+  --case-surface-3: #20252e;
+  --case-border: #2b313b;
+  --case-border-strong: #3c4450;
+  --case-text: #e9e4d8;
+  --case-text-soft: #c8c2b6;
+  --case-muted: #8d97a3;
+  --case-faint: #626b76;
+  --case-accent: #e2a64b;
+  --case-accent-strong: #f4c377;
+  --case-accent-soft: rgba(226, 166, 75, 0.12);
+  --case-accent-line: rgba(226, 166, 75, 0.32);
+  --case-danger: #d96a62;
+  --case-danger-soft: rgba(217, 106, 98, 0.12);
+  --case-success: #77b592;
+  --case-success-soft: rgba(119, 181, 146, 0.12);
+  --case-info: #7aa7cc;
+  --case-info-soft: rgba(122, 167, 204, 0.12);
+  --case-paper: #e8e0d0;
+  --case-paper-soft: #d8cfbc;
+  --case-paper-ink: #2a2722;
+  --case-radius: 12px;
+  --case-radius-sm: 8px;
+  --case-shadow: 0 18px 44px rgba(0, 0, 0, 0.35);
+  --case-font-body: "Segoe UI", system-ui, -apple-system, sans-serif;
+  --case-font-display: Georgia, "Times New Roman", serif;
+  --case-font-mono: "Cascadia Code", Consolas, "SF Mono", monospace;
+}
