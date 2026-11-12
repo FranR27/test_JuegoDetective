@@ -1,0 +1,79 @@
+.messages {
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  height: 100%;
+  min-height: 0;
+}
+
+.messages__contacts {
+  padding: 12px;
+  overflow: auto;
+  border-right: 1px solid var(--border);
+  align-content: start;
+}
+
+.messages__chat {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.messages__thread {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  margin: 0;
+  padding: 12px;
+  overflow: auto;
+  list-style: none;
+}
+
+.bubble {
+  display: grid;
+  gap: 2px;
+  max-width: 80%;
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+
+.bubble--me {
+  align-self: flex-end;
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+
+.bubble--them {
+  align-self: flex-start;
+}
+
+.bubble__time {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+/* El botón "Contactos" solo sirve (y solo se ve) cuando la lista se oculta. */
+.messages__back {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .messages {
+    grid-template-columns: 1fr;
+  }
+
+  .messages[data-has-selection='true'] .messages__contacts,
+  .messages[data-has-selection='false'] .messages__chat {
+    display: none;
+  }
+
+  .messages__contacts {
+    border-right: 0;
+  }
+
+  .messages__back {
+    display: inline-flex;
+  }
+}

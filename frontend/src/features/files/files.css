@@ -1,0 +1,78 @@
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.breadcrumb li + li::before {
+  content: '/';
+  margin-right: 4px;
+}
+
+.breadcrumb [aria-current='page'] {
+  color: var(--text);
+}
+
+.breadcrumb__link {
+  padding: 0;
+  background: none;
+  border: 0;
+  color: var(--accent);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.folder-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.folder-card {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  width: 100%;
+  padding: 16px 8px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.folder-card:hover {
+  border-color: var(--accent);
+}
+
+.folder-card__glyph {
+  font-family: var(--font-mono);
+  color: var(--accent);
+}
+
+.folder-card__meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.viewer__name {
+  margin: 0 0 12px;
+  font-size: 1rem;
+}
+
+.viewer__placeholder {
+  display: grid;
+  place-items: center;
+  height: 140px;
+  margin-bottom: 12px;
+  border: 1px dashed var(--border);
+  border-radius: 6px;
+  color: var(--muted);
+}
