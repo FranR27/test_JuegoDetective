@@ -1,6 +1,6 @@
 .messages {
   display: grid;
-  grid-template-columns: 210px 1fr;
+  grid-template-columns: 230px 1fr;
   height: 100%;
   min-height: 0;
 }
@@ -10,6 +10,7 @@
   overflow: auto;
   border-right: 1px solid var(--border);
   align-content: start;
+  background: rgba(13, 20, 31, 0.4);
 }
 
 .messages__chat {
@@ -21,27 +22,27 @@
 .messages__thread {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
   flex: 1;
   margin: 0;
-  padding: 12px;
+  padding: 14px;
   overflow: auto;
   list-style: none;
 }
 
 .bubble {
   display: grid;
-  gap: 2px;
+  gap: 3px;
   max-width: 80%;
-  padding: 8px 12px;
-  border-radius: 12px;
-  background: var(--surface-2);
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(26, 35, 49, 0.92);
   border: 1px solid var(--border);
 }
 
 .bubble--me {
   align-self: flex-end;
-  background: var(--accent-soft);
+  background: rgba(73, 121, 118, 0.26);
   border-color: var(--accent);
 }
 
@@ -54,7 +55,6 @@
   color: var(--muted);
 }
 
-/* El botón "Contactos" solo sirve (y solo se ve) cuando la lista se oculta. */
 .messages__back {
   display: none;
 }

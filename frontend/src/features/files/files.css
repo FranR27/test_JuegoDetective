@@ -29,8 +29,8 @@
 
 .folder-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -39,22 +39,30 @@
 .folder-card {
   display: grid;
   justify-items: center;
-  gap: 4px;
+  gap: 6px;
   width: 100%;
-  padding: 16px 8px;
-  background: var(--surface-2);
+  padding: 18px 10px;
+  background: rgba(25, 37, 54, 0.9);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 14px;
   cursor: pointer;
+  transition: border-color 140ms ease, transform 140ms ease, background 140ms ease;
 }
 
 .folder-card:hover {
   border-color: var(--accent);
+  background: rgba(32, 47, 69, 0.95);
+  transform: translateY(-1px);
 }
 
 .folder-card__glyph {
   font-family: var(--font-mono);
-  color: var(--accent);
+  font-size: 1.15rem;
+  color: var(--accent-strong);
+}
+
+.folder-card__name {
+  font-weight: 600;
 }
 
 .folder-card__meta {
@@ -72,7 +80,8 @@
   place-items: center;
   height: 140px;
   margin-bottom: 12px;
-  border: 1px dashed var(--border);
-  border-radius: 6px;
+  border: 1px dashed var(--border-strong);
+  border-radius: 10px;
   color: var(--muted);
+  background: rgba(10, 17, 27, 0.4);
 }

@@ -5,6 +5,7 @@
  */
 export default function Window({
   title,
+  icon,
   slot,
   zIndex,
   active,
@@ -23,7 +24,12 @@ export default function Window({
       onPointerDown={onFocus}
     >
       <header className="window__bar">
-        <h2 className="window__title">{title}</h2>
+        <div className="window__heading">
+          <span className="window__icon" aria-hidden="true">
+            {icon}
+          </span>
+          <h2 className="window__title">{title}</h2>
+        </div>
         <div className="window__actions">
           <button
             type="button"

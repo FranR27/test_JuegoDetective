@@ -1,18 +1,24 @@
 :root {
-  --bg: #0b0f14;
-  --surface: #121923;
-  --surface-2: #1a2331;
-  --border: #263246;
-  --text: #d7e0ee;
-  --muted: #8a97ab;
-  --accent: #4fd1c5;
-  --accent-soft: #123a3a;
-  --danger: #f87171;
+  --bg: #071018;
+  --bg-soft: #0b1825;
+  --surface: rgba(15, 24, 36, 0.92);
+  --surface-2: #182334;
+  --surface-3: #223149;
+  --border: #2b3b52;
+  --border-strong: #3e5677;
+  --text: #dde7f5;
+  --muted: #8fa0b8;
+  --accent: #79d7cc;
+  --accent-strong: #9ff0e6;
+  --accent-soft: rgba(62, 116, 114, 0.32);
+  --danger: #f38a8a;
+  --shadow-xl: 0 24px 60px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 12px 36px rgba(0, 0, 0, 0.38);
 
   --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
   --font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
 
-  --taskbar-height: 48px;
+  --taskbar-height: 54px;
   color-scheme: dark;
 }
 
@@ -30,14 +36,19 @@ body,
 
 body {
   margin: 0;
-  background: var(--bg);
+  background:
+    radial-gradient(circle at top, rgba(68, 111, 173, 0.14), transparent 32%),
+    linear-gradient(180deg, #09111b 0%, #071018 100%);
   color: var(--text);
   font-family: var(--font-sans);
   font-size: 16px;
   line-height: 1.5;
 }
 
-button {
+button,
+input,
+textarea,
+select {
   font: inherit;
   color: inherit;
 }
@@ -50,6 +61,10 @@ button:disabled {
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
+}
+
+::selection {
+  background: rgba(121, 215, 204, 0.25);
 }
 
 @media (prefers-reduced-motion: reduce) {
