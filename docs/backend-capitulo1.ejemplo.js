@@ -1,9 +1,12 @@
 /**
- * Catálogo REAL del capítulo 1 para el backend (Integrante 3).
+ * Referencia del catálogo real del capítulo 1.
  *
- * Reemplaza backend/src/data/capitulo1.js por este archivo cuando se integre
- * la entrega del Integrante 2. Los ids son exactamente los del frontend, así
- * que no hace falta traducir nada (VITE_API_IDS=frontend).
+ * La fuente de la verdad es backend/src/data/capitulo1.js, ya integrado en
+ * esta rama. Este archivo se mantiene para documentar el contrato; no hace
+ * falta copiarlo a ningún lado.
+ *
+ * Los ids son exactamente los del frontend, así que no se traduce nada
+ * (VITE_API_IDS=frontend).
  *
  * Las soluciones no están en texto plano: solo su hash SHA-256, calculado con
  * la normalización de backend/src/utils/respuesta.js.

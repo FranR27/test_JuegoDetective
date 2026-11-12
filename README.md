@@ -1,6 +1,6 @@
 # CASO 404 — Capítulo 1: La persona que desapareció
 
-Entrega del **Integrante 2**: canon del capítulo, datos ficticios, pantallas reutilizables de investigación y reglas de los tres acertijos.
+Juego de investigación con frontend React + Vite y API Express + Firestore. Reúne el canon y las pantallas del Integrante 2 con el backend del Integrante 3 en una sola aplicación.
 
 > Todo el contenido es ficticio. Personas, empresas, legajos, cuentas y montos fueron inventados para el juego.
 
@@ -17,11 +17,24 @@ Entrega del **Integrante 2**: canon del capítulo, datos ficticios, pantallas re
 | Evidencias | 19 evidencias, 9 disponibles desde el inicio y 10 que se desbloquean con los acertijos |
 | Acertijos | 3 deducciones encadenadas con reglas, pistas y recompensas |
 | Pantallas | `FileExplorer`, `MailApp`, `MessagesApp`, `EvidenceBoard`, `PuzzlePanel` |
-| Integración | Cliente HTTP opcional para la API del Integrante 3 |
+| Backend | API de partidas, evidencias y validación de acertijos con persistencia en Firestore o memoria |
 
 ## Arranque rápido
 
 Requiere Node.js 20 o superior.
+
+### Backend
+
+```bash
+cd backend
+npm install
+copy .env.example .env      # en Linux/macOS: cp .env.example .env
+npm start                   # http://localhost:3001
+```
+
+Por defecto usa `STORAGE=memory` (las partidas se pierden al reiniciar). Para Firestore, seguir `backend/README.md`.
+
+### Frontend
 
 ```bash
 npm install
@@ -34,28 +47,30 @@ npm run build    # build de producción
 
 ## Modo local y modo backend
 
-Sin configuración, el prototipo valida los acertijos en el cliente. Es el modo pensado para revisar la entrega sin depender de otros integrantes.
+Sin configuración, el prototipo valida los acertijos en el cliente. Es el modo pensado para revisar la entrega sin depender del backend.
 
-Para usar la API del Integrante 3:
+Para jugar contra la API:
 
 1. Copiar `.env.example` a `.env.local`.
-2. Definir `VITE_API_URL=http://localhost:3001/api`.
-3. Levantar el backend con el catálogo real de `docs/backend-capitulo1.ejemplo.js`.
-4. Reiniciar Vite.
+2. Levantar el backend (`cd backend && npm start`).
+3. Reiniciar Vite.
 
-El detalle paso a paso, los ids y los hashes están en [`docs/integracion.md`](docs/integracion.md). Si el backend no responde, la partida sigue funcionando en local y el pie de la app lo indica.
+El catálogo real ya está aplicado en `backend/src/data/capitulo1.js`: los ids y las respuestas coinciden con los del frontend. El detalle, los ids y los hashes están en [`docs/integracion.md`](docs/integracion.md). Si el backend no responde, la partida sigue funcionando en local y el pie de la app lo indica.
 
 ## Documentación
 
 - [`docs/historia-capitulo-1.md`](docs/historia-capitulo-1.md): canon, cronología, reparto y piezas del caso.
 - [`docs/reglas-acertijos.md`](docs/reglas-acertijos.md): respuestas, desbloqueos, pistas y validación.
 - [`docs/contrato-datos.md`](docs/contrato-datos.md): esquemas de datos y contrato de la API.
-- [`docs/integracion.md`](docs/integracion.md): cómo conectar el backend y qué falta coordinar.
-- [`docs/backend-capitulo1.ejemplo.js`](docs/backend-capitulo1.ejemplo.js): catálogo listo para reemplazar el provisional del backend.
+- [`docs/integracion.md`](docs/integracion.md): contrato entre frontend y backend, ids y hashes.
+- [`docs/backend-capitulo1.ejemplo.js`](docs/backend-capitulo1.ejemplo.js): referencia del catálogo ya aplicado en `backend/src/data/capitulo1.js`.
 
 ## Estructura
 
 ```text
+backend/                         API Express + Firestore/memoria
+docs/                            canon, reglas, contrato de datos e integración
+public/case/photos/              imágenes del caso
 src/
 ├── components/
 │   ├── archivos/FileExplorer.jsx
@@ -77,13 +92,13 @@ src/
 
 ## Alcance y límites
 
-Esta entrega **no implementa** Firestore, autenticación ni el escritorio general del juego. El `App.jsx` es un harness para montar y probar las pantallas; el escritorio real lo arma el Integrante 1.
+Esta entrega **integra la API y Firestore** para guardar partidas y validar acertijos. No incluye autenticación ni el escritorio general del juego: el `App.jsx` es un harness para montar y probar las pantallas; el escritorio real lo arma el Integrante 1.
 
-Las respuestas canónicas están en `src/data/acertijos.js` para que el prototipo sea jugable. En producción no deben viajar al cliente: el backend del Integrante 3 valida hashes y devuelve solo `correcto` / `incorrecto`. El motor `puzzleEngine.js` y el catálogo de `docs/backend-capitulo1.ejemplo.js` ya están preparados para ese cambio.
+Las respuestas canónicas están en `src/data/acertijos.js` para que el prototipo sea jugable y en `backend/src/data/capitulo1.js` como hashes para la API. El backend valida y devuelve solo `correcto` / `incorrecto`.
 
 ## Flujo de equipo
 
-- Rama de esta entrega: `feature/investigacion`.
-- No se modifican archivos de las ramas `feature/backend` ni del escritorio del Integrante 1.
+- Rama integrada: `feature/integracion` (pasa a `main`).
+- El backend vive en `backend/` y el frontend en la raíz, en un solo repositorio.
 - Los cambios se integran por Pull Request.
-- Antes de cambiar una fecha, un nombre o una prueba hay que actualizar el canon y correr `npm test`: los tests verifican la coherencia entre historia, documentos, evidencias y desbloqueos.
+- Antes de cambiar una fecha, un nombre o una prueba hay que actualizar el canon y correr `npm test` en la raíz y en `backend/`: los tests verifican la coherencia entre historia, documentos, evidencias, desbloqueos y API.

@@ -1,51 +1,27 @@
 # Integración con el backend (Integrante 3)
 
-La rama `feature/backend` ya tiene una API Express para crear partidas, registrar evidencias y validar acertijos. Esta entrega agrega un cliente opcional y un catálogo real para que el frontend y el backend hablen el mismo idioma.
+La API Express para crear partidas, registrar evidencias y validar acertijos está integrada en esta misma rama, junto con el catálogo real y el cliente HTTP del frontend.
 
 ## Estado actual
 
 | Pieza | Estado |
 |---|---|
-| API de partidas, evidencias y acertijos | Lista en `origin/feature/backend` |
+| API de partidas, evidencias y acertijos | Integrada en `backend/` |
 | Persistencia en memoria | Lista (`STORAGE=memory`) |
-| Firestore | Implementado por Integrante 3, no probado desde esta entrega |
-| Catálogo real del capítulo 1 | En `docs/backend-capitulo1.ejemplo.js` |
+| Firestore | Probado de punta a punta con la partida real |
+| Catálogo real del capítulo 1 | Aplicado en `backend/src/data/capitulo1.js` |
 | Cliente HTTP del frontend | En `src/services/apiCapitulo1.js` |
 | Sincronización de partida | En `src/features/investigation/useInvestigation.js` |
 | Validación local sin backend | Sigue disponible y es el modo por defecto |
 
-**Importante:** el catálogo provisional de `feature/backend` usa ids distintos y respuestas de demo (`demo-despedida`, `Demo-Clave-2026`, `demo-historial`). Con ese catálogo la API funciona, pero **no valida las respuestas reales del capítulo**. Hay que reemplazarlo por el catálogo de esta entrega (un solo archivo).
+El catálogo del backend usa exactamente los ids del frontend y las respuestas reales. Ya no hace falta traducir ids ni reemplazar archivos.
 
 ## Puesta en marcha
 
-### 1. Traer la rama del backend
-
-```bash
-git fetch origin
-git worktree add ../caso404-backend origin/feature/backend
-```
-
-También sirve clonar el repositorio y cambiar a `feature/backend`.
-
-### 2. Reemplazar el catálogo provisional
-
-Desde la raíz de este repositorio, copiar:
+### 1. Levantar el backend
 
 ```powershell
-Copy-Item .\docs\backend-capitulo1.ejemplo.js ..\caso404-backend\backend\src\data\capitulo1.js
-```
-
-Ese archivo ya contiene:
-
-- las **19 evidencias** del capítulo con su `desbloqueadaPor`;
-- los **3 acertijos** con los ids del frontend;
-- los hashes SHA-256 de las respuestas reales;
-- la cadena de desbloqueo `p1 → p2 → p3`.
-
-### 3. Levantar el backend
-
-```powershell
-cd ..\caso404-backend\backend
+cd backend
 Copy-Item .env.example .env
 npm.cmd install
 npm.cmd run dev
@@ -57,9 +33,11 @@ Por defecto escucha en `http://localhost:3001`, con `STORAGE=memory` y CORS para
 curl http://localhost:3001/api/health
 ```
 
-### 4. Configurar el frontend
+Para persistir las partidas en Firestore, seguir `backend/README.md`.
 
-En la raíz de este repositorio:
+### 2. Configurar el frontend
+
+En la raíz del repositorio:
 
 ```powershell
 Copy-Item .env.example .env.local
@@ -74,7 +52,7 @@ VITE_API_IDS=frontend
 
 Reiniciar Vite (`npm.cmd run dev`). El pie de la app debe mostrar **Backend conectado · partida …**.
 
-### 5. Jugar
+### 3. Jugar
 
 - Al entrar se crea una partida y se guarda su id en `localStorage` (`caso404:partidaId`).
 - Al recargar se retoma la misma partida con `GET /api/partidas/:id`.
@@ -128,24 +106,25 @@ Por eso, después de resolver los tres acertijos en una partida nueva, el backen
 
 ## Verificación realizada
 
-- `npm test`: **24 tests** de canon, referencias, acertijos, contrato de API y hashes.
+- `npm test` en la raíz: **24 tests** de canon, referencias, acertijos, contrato de API y hashes.
+- `npm test` en `backend/`: **26 tests** con el catálogo real aplicado.
 - `npm run build`: build de producción correcto.
-- Prueba real contra `origin/feature/backend` en un worktree temporal, reemplazando su catálogo por `docs/backend-capitulo1.ejemplo.js`:
+- Prueba real de punta a punta contra `STORAGE=firestore`:
   - `POST /partidas` → partida creada;
   - evidencia bloqueada → **403** `evidencia_bloqueada`;
   - evidencia libre → registrada;
   - P1 con una sola opción → `correcto: false`;
-  - P1, P2 y P3 con las respuestas reales → `correcto: true` y 3 + 4 + 3 evidencias desbloqueadas;
-  - partida final → 3 acertijos resueltos.
+  - P1, P2 y P3 con las respuestas reales (incluida la clave `0847-2026` normalizada por el cliente) → `correcto: true` y 3 + 4 + 3 evidencias desbloqueadas;
+  - partida final → 3 acertijos resueltos;
+  - la UI mostró **Backend conectado** y resolvió P1 desde el navegador.
 
 ## Pendientes de coordinación
 
 ### Con Integrante 3
 
-- Aplicar `docs/backend-capitulo1.ejemplo.js` en `feature/backend` (o confirmar los ids definitivos).
 - Decidir si el catálogo público (títulos, pistas, opciones) también se sirve desde la API. Hoy el frontend lo tiene embebido; las respuestas no.
 - Confirmar si se persisten intentos, pistas o estados de lectura. Hoy el backend no los guarda.
-- Probar `STORAGE=firestore` con la partida real y confirmar CORS del deploy.
+- Configurar `CORS_ORIGIN` con la URL del frontend publicado al desplegar.
 
 ### Con Integrante 1
 

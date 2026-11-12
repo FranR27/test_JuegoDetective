@@ -174,7 +174,7 @@ En producción el frontend no debe conocer las respuestas. El cliente envía una
 | `p2_auditoria` | `08472026` | `false` | `e2f489d0059c34576b86132e479c8521f2f18895b57dfbf5dd0156f901c6da17` |
 | `p3_renuncia` | `p3_audit_trail|p3_rosario` | `false` | `fcb65099d57bb66fb0b9599c3a3b15a8f9d14ef6307fd90a07eb9e18ee7742d8` |
 
-Los ids de las opciones se ordenan alfabéticamente y se unen con `|`. Así el backend valida la combinación sin recibir la respuesta en texto plano. El catálogo completo está en `docs/backend-capitulo1.ejemplo.js` y el detalle en `docs/integracion.md`.
+Los ids de las opciones se ordenan alfabéticamente y se unen con `|`. Así el backend valida la combinación sin recibir la respuesta en texto plano. El catálogo completo está en `backend/src/data/capitulo1.js` (referencia en `docs/backend-capitulo1.ejemplo.js`) y el detalle en `docs/integracion.md`.
 
 ### Modo QA
 
@@ -186,5 +186,5 @@ El harness tiene un botón **Modo QA** que muestra las respuestas canónicas y l
 2. Marcar los documentos, carpetas y evidencias con `lockedByPuzzleId` / `unlockedByPuzzleId` en `archivos.js` y `evidencias.js`.
 3. Verificar que `unlocks` coincida exactamente con esos bloqueos: los tests fallan si algo queda huérfano o cruzado.
 4. Si el acertijo usa opción múltiple, mantener exactamente 2 respuestas y al menos un distractor por cada respuesta.
-5. Actualizar `HASHES_BACKEND` en `src/services/apiCapitulo1.js` y `docs/backend-capitulo1.ejemplo.js`.
+5. Actualizar `HASHES_BACKEND` en `src/services/apiCapitulo1.js` y el catálogo `backend/src/data/capitulo1.js` (y su referencia en `docs/backend-capitulo1.ejemplo.js`).
 6. Correr `npm test` y `npm run build`.

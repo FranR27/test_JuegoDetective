@@ -334,8 +334,8 @@ Códigos: `id_invalido`, `capitulo_invalido`, `evidencia_invalida`, `respuesta_i
 | `multiple` | ids de las opciones elegidas, ordenados y unidos por `|`: `p1_hermano|p1_vpn` |
 | `password` | texto normalizado a letras y números: `08472026` |
 
-El backend normaliza (sin tildes, sin espacios extra, minúsculas) y compara contra el hash SHA-256 del catálogo. Los hashes reales están en `src/services/apiCapitulo1.js` (`HASHES_BACKEND`) y en `docs/backend-capitulo1.ejemplo.js`.
+El backend normaliza (sin tildes, sin espacios extra, minúsculas) y compara contra el hash SHA-256 del catálogo. Los hashes reales están en `src/services/apiCapitulo1.js` (`HASHES_BACKEND`) y en `backend/src/data/capitulo1.js`.
 
 ## Compatibilidad con el catálogo provisional
 
-La rama `feature/backend` trae ids provisionales (`mensaje-despedida`, `auditoria-2026`, `historial-renuncia`) y solo 5 evidencias. El cliente puede traducirlos con `CONTRATO_COMPATIBILIDAD` y `VITE_API_IDS=compat`, pero ese catálogo conserva respuestas de demo. Para jugar de verdad hay que reemplazarlo por `docs/backend-capitulo1.ejemplo.js`. Ver `docs/integracion.md`.
+El backend integrado ya usa los ids y las respuestas reales (`backend/src/data/capitulo1.js`). `CONTRATO_COMPATIBILIDAD` y `VITE_API_IDS=compat` quedan solo para probar versiones viejas de la API con el catálogo provisional (`mensaje-despedida`, `auditoria-2026`, `historial-renuncia`); no permiten validar las respuestas reales del capítulo. Ver `docs/integracion.md`.

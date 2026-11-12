@@ -3,7 +3,7 @@ require('dotenv').config();
 const ALMACENAMIENTOS = ['memory', 'firestore'];
 
 function leerOrigenes(valor) {
-  return (valor ?? 'http://localhost:5173')
+  return (valor ?? 'http://localhost:5173,http://127.0.0.1:5173')
     .split(',')
     .map((origen) => origen.trim())
     .filter(Boolean);

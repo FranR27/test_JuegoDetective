@@ -155,7 +155,7 @@ El frontend debe enviar a esta API los mismos ids de evidencias y acertijos que 
 
 ## CORS
 
-`CORS_ORIGIN` lista los orígenes del frontend permitidos, separados por comas (por defecto `http://localhost:5173`). Al publicar el frontend hay que agregar su URL.
+`CORS_ORIGIN` lista los orígenes del frontend permitidos, separados por comas (por defecto `http://localhost:5173,http://127.0.0.1:5173`). Al publicar el frontend hay que agregar su URL.
 
 ## Despliegue en Render
 
